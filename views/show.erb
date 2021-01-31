@@ -1,0 +1,17 @@
+<h3> タイトル：<%= @title %> </h3>
+<h3>内容： <%= @body %> </h3>
+
+<div class = "form">
+  <form action="<%= @edit %>" method="get">
+    <input type="submit" class="show_btn" value="編集">
+  </form>
+
+  <form action="<%= @url %>" method="post">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" class="show_btn" value="削除">
+  </form>
+
+  <form action="/memos" method="get">
+    <input type="submit" class="show_btn" value="メモ一覧へ">
+  </form>
+</div>

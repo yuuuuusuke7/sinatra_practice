@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang = "ja">
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title><%= @title_head %></title>
+  </head>
+  <body>
+    <header>
+      <div class = "container">
+        <div class="icon">
+          <img src = "https://png.pngtree.com/png-clipart/20200722/original/pngtree-coffee-coffee-packaging-coffee-coffee-cup-png-image_4945561.jpg" width="120" height="120" alt="コーヒーの画像">
+        </div>
+        <div class="info">
+          <h1>Yusuke</h1>
+          <p>Memo</p>
+        </div>
+      </div>
+    </header>
+
+    <section>
+      <div class = "main" >
+        <%= yield %>
+      </div>
+    </section>
+
+  　<footer>
+  　  <p>(c) Yusuke</p>
+  　</footer>
+  </body>
+</html>
