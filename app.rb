@@ -6,7 +6,7 @@ require 'json'
 require 'securerandom'
 enable :method_override
 
-get '/memos' do
+get '/' do
   @title_head = 'top'
   files = Dir.glob('model/*').sort_by { |f| File.mtime(f) }
   @memos = files.map { |file| JSON.parse(File.read(file), symbolize_names: true) }
