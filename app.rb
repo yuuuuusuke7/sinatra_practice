@@ -5,7 +5,9 @@ require 'sinatra/reloader'
 require 'json'
 require 'securerandom'
 require 'erb'
-include ERB::Util
+class ERB
+  include ERB::Util
+end
 enable :method_override
 
 get '/' do
@@ -27,8 +29,8 @@ get '/memos/:id' do
 end
 
 post '/memos' do
-  hash = { id: SecureRandom.uuid, title: params[:title], body: params[:body] }
-  File.open("model/#{hash[:id]}.json", 'w'){ |f| f.puts JSON.generate(hash) }
+  hash = { id: SecureRandom.uuid, title: h(params[:title]), body: h(params[:body]) }
+  File.open("model/#{hash[:id]}.json", 'w') { |f| f.puts JSON.generate(hash) }
   redirect '/'
 end
 
