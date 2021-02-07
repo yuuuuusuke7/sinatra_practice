@@ -1,17 +1,17 @@
-<h3> タイトル：<%= @title %> </h3>
-<h3>内容： <%= @body %> </h3>
+<h3>メモタイトル：<%= @memo[:title] %> </h3>
+<h3>内容： <%= @memo[:body] %> </h3>
 
 <div class = "form">
-  <form action="<%= @edit %>" method="get">
+  <form action="/memos/<%= @memo[:id] %>/edit" method="get">
     <input type="submit" class="show_btn" value="編集">
   </form>
 
-  <form action="<%= @url %>" method="post">
+  <form action="/memos/<%= @memo[:id] %>" method="post">
     <input type="hidden" name="_method" value="DELETE">
     <input type="submit" class="show_btn" value="削除">
   </form>
 
-  <form action="/memos" method="get">
+  <form action="/" method="get">
     <input type="submit" class="show_btn" value="メモ一覧へ">
   </form>
 </div>
