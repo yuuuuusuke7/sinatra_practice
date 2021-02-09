@@ -6,7 +6,7 @@
     <input type="submit" class="show_btn" value="編集">
   </form>
 
-  <form action="" method="post">
+  <form action="/memos/<%= @memo[:id] %>" method="post">
     <input type="hidden" name="_method" value="DELETE">
     <input type="submit" class="show_btn" value="削除">
   </form>
