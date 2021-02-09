@@ -11,13 +11,17 @@ end
 enable :method_override
 
 get '/' do
+  redirect '/memos'
+end
+
+get '/memos' do
   @title_head = 'top'
   files = Dir.glob('model/*').sort_by { |f| File.mtime(f) }
   @memos = files.map { |file| JSON.parse(File.read(file), symbolize_names: true) }
   erb :index
 end
 
-get '/memos' do
+get '/memos/new' do
   @title_head = 'new'
   erb :new
 end
