@@ -4,10 +4,6 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'json'
 require 'securerandom'
-require 'erb'
-class ERB
-  include ERB::Util
-end
 enable :method_override
 
 get '/' do
@@ -62,7 +58,7 @@ not_found do
 end
 
 helpers do
-  def h(text)
-    escape_html(text)
+  def h(str)
+    Rack::Utils.escape_html(str)
   end
 end
